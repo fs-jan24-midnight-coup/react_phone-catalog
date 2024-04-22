@@ -267,4 +267,4 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </CardContent>
     </Card>
   );
-};
+}; 
