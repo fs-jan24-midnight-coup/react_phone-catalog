@@ -11,6 +11,7 @@ import {
   IconButton,
   Skeleton,
   Stack,
+  Tooltip,
   Typography,
 } from '@mui/material';
 import { useCartContext } from '../../hooks/useCartContext';
@@ -80,24 +81,51 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           style={{ textDecoration: 'none', color: 'inherit' }}
         >
           {isLoading ? (
-            <Skeleton variant="rounded" animation="wave" width="100%" height={196} />
-          ) : (
-            <CardMedia
-              component="img"
-              height="50%"
-              image={image}
-              sx={{
-                height: 196,
-                maxWidth: 208,
-                objectFit: 'contain',
-                objectPosition: 'center',
-              }}
+            <Skeleton
+              variant="rounded"
+              animation="wave"
+              width="100%"
+              height={196}
             />
+          ) : (
+            <>
+              <CardMedia
+                component="img"
+                height="50%"
+                image={image}
+                sx={{
+                  height: 196,
+                  maxWidth: 208,
+                  objectFit: 'contain',
+                  objectPosition: 'center',
+                }}
+              />
+              <Box
+                sx={{
+                  pt: 1,
+                }}
+              >
+                <Tooltip title={name}>
+                  <Typography
+                    variant="body1"
+                    component="div"
+                    sx={{
+                      display: '-webkit-box',
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      WebkitLineClamp: 2,
+                    }}
+                  />
+                </Tooltip>
+              </Box>
+            </>
           )}
           <Box
             height={36}
             sx={{
-              pt: 2,
+              pt: 1,
+              pb: 1,
             }}
           >
             <Typography
@@ -112,7 +140,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
               }}
             >
               {isLoading ? (
-                <Skeleton variant="rounded" animation="wave" width="100%" height={20} />
+                <Skeleton variant="rounded" animation="wave" width="100%" height={40} />
               ) : (
                 name
               )}
@@ -122,7 +150,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           <Stack direction="row" spacing={2} sx={{ pt: 2, pb: 1 }}>
             <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
               {isLoading ? (
-                <Skeleton variant="rounded" animation="wave" width={50} height={30} />
+                <Skeleton
+                  variant="rounded"
+                  animation="wave"
+                  width={50}
+                  height={40}
+                />
               ) : (
                 `$${price}`
               )}
@@ -136,7 +169,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
               }}
             >
               {isLoading ? (
-                <Skeleton variant="rounded" animation="wave" width={50} height={30} />
+                <Skeleton
+                  variant="rounded"
+                  animation="wave"
+                  width={50}
+                  height={40}
+                />
               ) : (
                 `$${fullPrice}`
               )}
@@ -152,7 +190,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           >
             <Typography variant="body1" sx={{ color: '#89939A' }}>
               {isLoading ? (
-                <Skeleton variant="rounded" animation="wave" width={50} height={18} />
+                <Skeleton
+                  variant="rounded"
+                  animation="wave"
+                  width={50}
+                  height={18}
+                />
               ) : (
                 'Screen'
               )}
@@ -162,7 +205,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
               sx={{ color: 'black', fontWeight: 'bold' }}
             >
               {isLoading ? (
-                <Skeleton variant="rounded" animation="wave" width={50} height={18} />
+                <Skeleton
+                  variant="rounded"
+                  animation="wave"
+                  width={125}
+                  height={18}
+                />
               ) : (
                 screen
               )}
@@ -175,7 +223,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           >
             <Typography variant="body1" sx={{ color: '#89939A' }}>
               {isLoading ? (
-                <Skeleton variant="rounded" animation="wave" width={70} height={18} />
+                <Skeleton
+                  variant="rounded"
+                  animation="wave"
+                  width={70}
+                  height={18}
+                />
               ) : (
                 'Capacity'
               )}
@@ -185,7 +238,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
               sx={{ color: 'black', fontWeight: 'bold' }}
             >
               {isLoading ? (
-                <Skeleton variant="rounded" animation="wave" width={50} height={18} />
+                <Skeleton
+                  variant="rounded"
+                  animation="wave"
+                  width={50}
+                  height={18}
+                />
               ) : (
                 capacity
               )}
@@ -198,7 +256,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           >
             <Typography variant="body1" sx={{ color: '#89939A' }}>
               {isLoading ? (
-                <Skeleton variant="rounded" animation="wave" width={50} height={19} />
+                <Skeleton
+                  variant="rounded"
+                  animation="wave"
+                  width={40}
+                  height={19}
+                />
               ) : (
                 'RAM'
               )}
@@ -208,7 +271,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
               sx={{ color: 'black', fontWeight: 'bold' }}
             >
               {isLoading ? (
-                <Skeleton variant="rounded" animation="wave" width={50} height={19} />
+                <Skeleton
+                  variant="rounded"
+                  animation="wave"
+                  width={40}
+                  height={19}
+                />
               ) : (
                 ram
               )}
@@ -226,7 +294,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           }}
         >
           {isLoading ? (
-            <Skeleton variant="rounded" animation="wave" width={160} height={50} />
+            <Skeleton
+              variant="rounded"
+              animation="wave"
+              width={160}
+              height={50}
+            />
           ) : (
             <Button
               variant={!isInCart ? 'contained' : 'outlined'}
@@ -249,7 +322,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           )}
 
           {isLoading ? (
-            <Skeleton variant="circular" animation="wave" width={40} height={40} />
+            <Skeleton
+              variant="circular"
+              animation="wave"
+              width={40}
+              height={40}
+            />
           ) : (
             <IconButton
               sx={{ border: 1, borderColor: '#B4BDC3', color: 'black' }}
@@ -267,4 +345,4 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </CardContent>
     </Card>
   );
-}; 
+};
