@@ -54,7 +54,7 @@ const Slider = () => {
             </Card>
           </SwiperSlide>
           {swiperContent.map(content => (
-            <SwiperSlide>
+            <SwiperSlide key={content}>
               <Card>
                 {/*<TestSlide backgroundTablet={content.backgroundTablet}  backgroundMobile={content.backgroundTablet}/>*/}
                 <SliderImage src={content} alt="" />
