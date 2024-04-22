@@ -15,7 +15,7 @@ export const HomePage: FC = () => {
   const categories: Category[] = [
     {
       id: 0,
-      img: 'public/img/category-phones.webp',
+      img: 'img/category-phones.webp',
       background: '#6D6474',
       name: 'Mobile phones',
       amount: data.filter(product => product.category === 'phones').length,
@@ -23,7 +23,7 @@ export const HomePage: FC = () => {
     },
     {
       id: 1,
-      img: 'public/img/category-tablets.png',
+      img: 'img/category-tablets.png',
       background: '#8D8D92',
       name: 'Tablets',
       amount: data.filter(product => product.category === 'tablets').length,
@@ -31,7 +31,7 @@ export const HomePage: FC = () => {
     },
     {
       id: 2,
-      img: 'public/img/category-accessories.png',
+      img: 'img/category-accessories.png',
       background: '#973D5F',
       name: 'Accessories',
       amount: data.filter(product => product.category === 'accessories').length,
