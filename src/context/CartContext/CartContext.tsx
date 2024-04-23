@@ -24,7 +24,7 @@ const saveCartToLocalStorage = (currentCart: ProductInCart[]) => {
 };
 
 export const CartProvider: React.FC<Props> = ({ children }) => {
-  const [cart, setCart] = useState(() => {
+  const [cart, setCart] = useState<ProductInCart[]>(() => {
     const currentCart = localStorage.getItem(CART_KEY);
 
     if (currentCart === null) {
@@ -40,7 +40,12 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     }
   });
 
-  const cartQuantity = useMemo(() => cart.length, [cart]);
+  const cartQuantity = useMemo(
+    () => cart.reduce((acc, item) => acc + item.quantity, 0),
+    [cart],
+  );
+
+  console.log(cart);
 
   const addToCart = (product: Product) => {
     if (!cart.some((item: ProductInCart) => item.prodId === product.id)) {
