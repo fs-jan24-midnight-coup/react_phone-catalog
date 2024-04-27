@@ -26,7 +26,10 @@ import CategorySort from '../../components/CategorySort/CategorySort';
 import { SortBy } from '../../types/SortBy';
 import { CategoryPriceRange } from '../../components/CategoryPriceRange/CategoryPriceRange';
 import { useSearchContext } from '../../hooks/useSearchContext';
-import { DotLottiePlayer } from '@dotlottie/react-player';
+import {
+  DotLottieCommonPlayer,
+  DotLottiePlayer,
+} from '@dotlottie/react-player';
 import { customBreakpoints } from '../../theme/breakpoints.config';
 import { useTheme } from '@mui/material/styles';
 
@@ -90,6 +93,12 @@ export const CategoryPage = () => {
   const filteredData = visibleProducts?.filter(
     data => data.category === categoryName,
   );
+
+  const animation = useRef<DotLottieCommonPlayer | null>(null);
+
+  useEffect(() => {
+    animation.current ? animation.current.play() : null;
+  }, [animation]);
 
   const sortedData = getSortedData(filteredData, sortBy);
 
@@ -192,6 +201,7 @@ export const CategoryPage = () => {
                     loop
                     autoplay
                     speed={0.75}
+                    ref={animation}
                   ></DotLottiePlayer>
                 </Box>
                 <Typography variant="h4" sx={{}}>
