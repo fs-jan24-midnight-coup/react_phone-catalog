@@ -60,7 +60,7 @@ export const ProductPage: FC = () => {
           >
             Back
           </Button>
-          <Typography variant="h1" pb={3}>
+          <Typography variant="h1" pb={3} color='primary'>
             {product?.name}
           </Typography>
           <ProductWrapper>

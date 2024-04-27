@@ -63,7 +63,7 @@ export const CategoryCard: React.FC<Props> = ({ category }) => {
           }}
         ></Box>
       </Box>
-      <Typography variant="h3" sx={{ pt: '24px' }}>
+      <Typography variant="h3" sx={{ pt: '24px' }} color="primary">
         {category.name}
       </Typography>
       <Typography variant="body2" color="secondary" sx={{ pt: '4px' }}>

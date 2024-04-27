@@ -80,20 +80,31 @@ export const RecommendedProducts: FC<RecommendedProps> = ({ name, color }) => {
           justifyContent: 'space-between',
         }}
       >
-        <Typography variant="h2" gutterBottom sx={customTypography.h2}>
+        <Typography
+          variant="h2"
+          color="primary"
+          gutterBottom
+          sx={customTypography.h2}
+        >
           You may also like
         </Typography>
 
         <Box>
           <Button onClick={handleClickPrev} disabled={startIndex === 0}>
-            <ArrowBack />
+            <ArrowBack color={startIndex === 0 ? 'secondary' : 'primary'} />
           </Button>
 
           <Button
             onClick={handleClickNext}
             disabled={startIndex + productsPerRow >= recommendedProducts.length}
           >
-            <ArrowForward />
+            <ArrowForward
+              color={
+                startIndex + productsPerRow >= recommendedProducts.length
+                  ? 'secondary'
+                  : 'primary'
+              }
+            />
           </Button>
         </Box>
       </Box>

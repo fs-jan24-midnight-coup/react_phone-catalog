@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { HeaderOtherLinks } from '../../types';
 import {
   ActiveLink,
+  ChangeModeButton,
   DesktopButtonsWrapper,
   StyledBurgerButton,
   StyledWrapperButton,
@@ -16,6 +17,8 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
 
 import { useCartContext } from '../../hooks/useCartContext';
 import { useFavoritesContext } from '../../hooks/useFavoritesContext';
@@ -25,6 +28,7 @@ import { toggleBurgerMenu } from '../../functions';
 import { useSearchContext } from '../../hooks/useSearchContext';
 import { useBurgerMenuContext } from '../../hooks/useBurgerMenuContext';
 import { Divider } from '@mui/material';
+import { useThemeChangeContext } from '../../hooks/useThemeChangeContext';
 
 interface Props {
   searchField: boolean;
@@ -32,6 +36,7 @@ interface Props {
 
 export const NavBarButtons: React.FC<Props> = ({ searchField }) => {
   const locationPathname = useLocation().pathname;
+  const { mode, setMode } = useThemeChangeContext();
   const { cartQuantity } = useCartContext();
   const { favoritesQuantity } = useFavoritesContext();
 
@@ -42,7 +47,7 @@ export const NavBarButtons: React.FC<Props> = ({ searchField }) => {
   const handleChangeIcon = (link: string) => {
     if (link === HeaderOtherLinks.cart) {
       return (
-        <Badge badgeContent={cartQuantity} color="info" max={99}>
+        <Badge badgeContent={cartQuantity} max={99} color="info">
           {locationPathname === HeaderOtherLinks.cart ? (
             <ShoppingCartIcon
               color="primary"
@@ -87,16 +92,6 @@ export const NavBarButtons: React.FC<Props> = ({ searchField }) => {
         })}
       </DesktopButtonsWrapper>
 
-      <Divider
-        orientation="vertical"
-        sx={({ breakpoints }) => ({
-          backgroundColor: 'secondary',
-          height: '64px',
-          [breakpoints.down('md')]: {
-            height: '48px',
-          },
-        })}
-      />
       <StyledBurgerButton
         disableElevation
         onClick={() => {
@@ -119,6 +114,35 @@ export const NavBarButtons: React.FC<Props> = ({ searchField }) => {
           ></MenuIcon>
         )}
       </StyledBurgerButton>
+
+      <Divider
+        orientation="vertical"
+        sx={({ breakpoints, palette }) => ({
+          backgroundColor: palette.element.main,
+          height: '64px',
+          [breakpoints.down('md')]: {
+            height: '48px',
+          },
+        })}
+      />
+
+      <ChangeModeButton
+        disableElevation
+        disableRipple
+        onClick={() => {
+          if (mode === 'dark') {
+            setMode('light');
+          } else {
+            setMode('dark');
+          }
+        }}
+      >
+        {mode === 'dark' ? (
+          <NightlightOutlinedIcon />
+        ) : (
+          <LightModeOutlinedIcon />
+        )}
+      </ChangeModeButton>
     </StyledWrapperButton>
   );
 };

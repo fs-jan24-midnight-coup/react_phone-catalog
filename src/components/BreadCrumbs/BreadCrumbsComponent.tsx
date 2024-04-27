@@ -81,7 +81,7 @@ export const BreadCrumbsComponent: FC<Props> = ({ product }) => {
   return (
     <Breadcrumbs
       aria-label="breadcrumb"
-      separator={<KeyboardArrowRightIcon fontSize="small" />}
+      separator={<KeyboardArrowRightIcon color="primary" fontSize="small" />}
       sx={{
         py: 2,
         display: 'flex',

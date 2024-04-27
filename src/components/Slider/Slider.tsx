@@ -4,16 +4,16 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import {
   SwiperPaginationWrapper,
   SliderBanner,
   SwiperArrow,
-  SliderArrowIconRight,
   LinkOne,
   LinkTwo,
   LinkThree,
-  SliderArrowIconLeft,
   SliderContainer,
 } from './Slider.styles.tsx';
 
@@ -22,7 +22,10 @@ const Slider = () => {
     <SliderContainer>
       <SliderBanner>
         <SwiperArrow className="swiper-button-prev">
-          <SliderArrowIconRight src="img/chevron-right.svg" />
+          <ArrowBackIosNewIcon
+            style={{ width: '16px', height: '16px' }}
+            color="primary"
+          />
         </SwiperArrow>
         <Swiper
           navigation={{
@@ -53,7 +56,10 @@ const Slider = () => {
           </SwiperSlide>
         </Swiper>
         <SwiperArrow className="swiper-button-next">
-          <SliderArrowIconLeft src="img/chevron-right.svg" />
+          <ArrowBackIosNewIcon
+            color="primary"
+            style={{ rotate: '180deg', width: '16px', height: '16px' }}
+          />
         </SwiperArrow>
       </SliderBanner>
       <SwiperPaginationWrapper className="swiper-pagination" />

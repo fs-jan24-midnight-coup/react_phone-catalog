@@ -23,7 +23,7 @@ export const ModalBox = styled(Box)(({ theme }) => ({
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: theme.palette.backgoundSecondary.main,
   border: '2px solid',
   borderColor: theme.palette.element.main,
   borderRadius: '16px',
@@ -214,6 +214,7 @@ export const CartModal: React.FC<Props> = ({
                   textAlign={'center'}
                   gutterBottom
                   sx={customTypography.h2}
+                  color="primary"
                 >
                   Enter your info
                 </Typography>
@@ -225,7 +226,7 @@ export const CartModal: React.FC<Props> = ({
                 rowGap={'8px'}
               >
                 <Box sx={textBoxStyle}>
-                  <PersonIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                  <PersonIcon sx={{ mr: 1, my: 0.5 }} color="primary" />
                   <TextField
                     error={error.includes('name')}
                     helperText={
@@ -237,6 +238,9 @@ export const CartModal: React.FC<Props> = ({
                     type="text"
                     id="fullWidth"
                     variant="standard"
+                    sx={({ palette }) => ({
+                      color: palette.primary.main,
+                    })}
                     required
                     value={name}
                     name="name"
@@ -245,7 +249,7 @@ export const CartModal: React.FC<Props> = ({
                   />
                 </Box>
                 <Box sx={textBoxStyle}>
-                  <EmailIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                  <EmailIcon sx={{ mr: 1, my: 0.5 }} color="primary" />
                   <TextField
                     error={error.includes('email')}
                     helperText={
@@ -256,6 +260,7 @@ export const CartModal: React.FC<Props> = ({
                     type="email"
                     id="fullWidth-error"
                     variant="standard"
+                    color="primary"
                     required
                     value={email}
                     name="email"
@@ -264,7 +269,7 @@ export const CartModal: React.FC<Props> = ({
                   />
                 </Box>
                 <Box sx={textBoxStyle}>
-                  <PhoneIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                  <PhoneIcon sx={{ mr: 1, my: 0.5 }} color="primary" />
                   <TextField
                     error={error.includes('phone')}
                     helperText={
@@ -275,6 +280,7 @@ export const CartModal: React.FC<Props> = ({
                     type="tel"
                     id="fullWidth"
                     variant="standard"
+                    color="primary"
                     required
                     value={phone}
                     name="phone"
@@ -283,7 +289,7 @@ export const CartModal: React.FC<Props> = ({
                   />
                 </Box>
                 <Box sx={textBoxStyle}>
-                  <HomeIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                  <HomeIcon sx={{ mr: 1, my: 0.5 }} color="primary" />
                   <TextField
                     error={error.includes('address')}
                     helperText={
@@ -294,6 +300,7 @@ export const CartModal: React.FC<Props> = ({
                     type="text"
                     id="fullWidth"
                     variant="standard"
+                    color="primary"
                     required
                     value={address}
                     name="address"
@@ -302,9 +309,7 @@ export const CartModal: React.FC<Props> = ({
                   />
                 </Box>
                 <Box sx={textBoxStyle}>
-                  <LocalShippingIcon
-                    sx={{ color: 'action.active', mr: 1, my: 0.5 }}
-                  />
+                  <LocalShippingIcon sx={{ mr: 1, my: 0.5 }} color="primary" />
                   <TextField
                     error={error.includes('postIndex')}
                     helperText={
@@ -316,6 +321,7 @@ export const CartModal: React.FC<Props> = ({
                     type="text"
                     id="fullWidth"
                     variant="standard"
+                    color="primary"
                     required
                     value={postIndex}
                     name="postIndex"
@@ -324,9 +330,7 @@ export const CartModal: React.FC<Props> = ({
                   />
                 </Box>
                 <Box sx={textBoxStyle}>
-                  <CreditCardIcon
-                    sx={{ color: 'action.active', mr: 1, my: 0.5 }}
-                  />
+                  <CreditCardIcon sx={{ mr: 1, my: 0.5 }} color="primary" />
                   <TextField
                     error={error.includes('creditCard')}
                     helperText={
@@ -339,6 +343,7 @@ export const CartModal: React.FC<Props> = ({
                     type="text"
                     id="fullWidth"
                     variant="standard"
+                    color="primary"
                     required
                     value={creditCard}
                     name="creditCard"

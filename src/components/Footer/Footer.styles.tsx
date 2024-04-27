@@ -14,6 +14,7 @@ export const FooterLogoLink = styled(Link)(({ theme }) => ({
 export const BackToTopButton = styled(HashLink)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
+  gap: '10px',
   cursor: 'pointer',
   color: theme.palette.secondary.main,
   textTransform: 'none',
@@ -35,16 +36,12 @@ export const BackToTopButton = styled(HashLink)(({ theme }) => ({
 }));
 
 export const Footer = styled(Box)(({ theme }) => ({
-  // position: 'absolute',
-  // bottom: 0,
-  // right: 0,
-  // left: 0,
   display: 'flex',
   alignItems: 'center',
   paddingTop: 32,
   paddingBottom: 32,
   marginTop: '20px',
-  background: theme.palette.white.main,
+  background: theme.palette.backgoundSecondary.main,
   boxShadow: '0px -1px 0px 0px' + theme.palette.element.main,
 }));
 
@@ -80,7 +77,6 @@ export const ButtonToTopIcon = styled('img')({
 });
 
 export const FooterContent = styled(Box)(({ theme }) => ({
-  paddingInline: '10px',
   display: 'flex',
   justifyContent: 'space-between',
   height: '100%',

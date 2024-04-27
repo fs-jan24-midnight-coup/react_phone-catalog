@@ -84,7 +84,12 @@ export const NewModels: React.FC = () => {
           marginBottom: '24px',
         }}
       >
-        <Typography variant="h2" gutterBottom sx={customTypography.h2}>
+        <Typography
+          variant="h2"
+          gutterBottom
+          sx={customTypography.h2}
+          color={theme.palette.primary.main}
+        >
           Brand new models
         </Typography>
 

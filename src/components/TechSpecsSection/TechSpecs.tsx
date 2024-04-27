@@ -54,7 +54,9 @@ export const TechSpecs: React.FC<TechSpecsProps> = ({ product }) => {
   return (
     <Stack sx={{ flex: 1 }} spacing={4}>
       <Stack spacing={2}>
-        <Typography variant="h3">Tech specs</Typography>
+        <Typography variant="h3" color="primary">
+          Tech specs
+        </Typography>
         <Divider />
       </Stack>
       <Table>
@@ -109,7 +111,7 @@ export const TechSpecs: React.FC<TechSpecsProps> = ({ product }) => {
                       }}
                       align="right"
                     >
-                      {cellName}
+                      <Typography color="primary">{cellName}</Typography>
                     </TableCell>
                   );
                 })}

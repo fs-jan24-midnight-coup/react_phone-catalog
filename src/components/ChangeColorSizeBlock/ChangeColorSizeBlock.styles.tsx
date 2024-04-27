@@ -38,7 +38,7 @@ export const Capacityes = styled(Box)({
 export const Capacity = styled(Link)(({ theme }) => ({
   padding: '8px',
   border: '1px solid',
-  borderColor: theme.palette.icon.main,
+  borderColor: theme.palette.element.main,
   borderRadius: '4px',
   color: theme.palette.primary.main,
   textDecoration: 'none',
@@ -46,8 +46,8 @@ export const Capacity = styled(Link)(({ theme }) => ({
 
   '&.active': {
     border: '1px solid',
-    borderColor: theme.palette.primary.main,
-    color: theme.palette.white.main,
+    borderColor: theme.palette.backgoundPrimary.main,
+    color: theme.palette.backgoundPrimary.main,
     backgroundColor: theme.palette.primary.main,
   },
 }));

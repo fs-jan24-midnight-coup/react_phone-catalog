@@ -72,20 +72,25 @@ export const HotPrices: React.FC = () => {
           justifyContent: 'space-between',
         }}
       >
-        <Typography variant="h2" gutterBottom sx={customTypography.h2}>
+        <Typography
+          variant="h2"
+          gutterBottom
+          sx={customTypography.h2}
+          color="primary"
+        >
           Hot Prices
         </Typography>
 
         <Box>
           <Button onClick={handleClickPrev} disabled={startIndex === 0}>
-            <ArrowBack />
+            <ArrowBack color="primary" />
           </Button>
 
           <Button
             onClick={handleClickNext}
             disabled={startIndex + productsPerRow >= newHotPrices.length}
           >
-            <ArrowForward />
+            <ArrowForward color="primary" />
           </Button>
         </Box>
       </Box>

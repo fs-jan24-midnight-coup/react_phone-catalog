@@ -12,7 +12,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 export const StyledAppBar = styled(AppBar)(({ theme }) => ({
   position: 'sticky',
-  background: `${theme.palette.white.main}`,
+  background: theme.palette.backgoundSecondary.main,
   boxShadow: 'none',
   borderBottom: `1px solid ${theme.palette.element.main}`,
 }));
@@ -96,15 +96,10 @@ export const StyledButton = styled(Button)(() => ({
   },
 }));
 
-export const StyledSearchWrapper = styled(Box)(({ theme }) => ({
+export const StyledSearchWrapper = styled(Box)(() => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  gap: '12px',
-
-  [theme.breakpoints.down('md')]: {
-    gap: '0',
-  },
 }));
 
 export const StyledSearchButton = styled(IconButton)(({ theme }) => ({
@@ -151,15 +146,18 @@ export const StyledSearchButton = styled(IconButton)(({ theme }) => ({
 export const StyledSearchInput = styled(Input)(({ theme }) => ({
   paddingInline: '10px',
   height: '40px',
-  width: '350px',
+  width: '300px',
   borderRadius: '10px',
-  border: `1px solid ${theme.palette.secondary.main}`,
+  border: `1px solid ${theme.palette.primary.main}`,
   outline: 'none',
   cursor: 'arrow',
 
   input: {
     padding: 0,
     paddingBlock: '10px',
+    '&:placeholder': {
+      color: theme.palette.primary.main,
+    },
   },
 
   '&:before, &:after': {
@@ -192,6 +190,7 @@ export const StyledBurgerButton = styled(Button)(({ theme }) => ({
   minHeight: '64px',
   width: '64px',
   borderRadius: '0',
+  borderLeft: `1px solid ${theme.palette.element.main}`,
 
   svg: {
     width: '24px',
@@ -289,5 +288,49 @@ export const StyledButtonClear = styled(Button)(({ theme }) => ({
 
   [theme.breakpoints.down('sm')]: {
     paddingBlock: '6px',
+  },
+}));
+
+export const ChangeModeButton = styled(Button)(({ theme }) => ({
+  display: 'flex',
+  padding: '0',
+  minWidth: 'unset',
+  minHeight: '64px',
+  width: '64px',
+  borderRadius: '0',
+
+  svg: {
+    width: '24px',
+    height: '24px',
+  },
+
+  '&:after': {
+    content: '""',
+    position: 'absolute',
+    right: '0',
+    bottom: '0',
+    display: 'block',
+    width: '100%',
+    height: '3px',
+    transform: 'scaleX(0)',
+    backgroundColor: theme.palette.primary.main,
+    transition: 'transform 500ms',
+  },
+
+  '&:hover': {
+    background: 'transparent',
+  },
+
+  '&:hover::after': {
+    transform: 'scaleX(1)',
+  },
+
+  [theme.breakpoints.down('md')]: {
+    width: '48px',
+    minHeight: '48px',
+    svg: {
+      width: '16px',
+      heigth: '16px',
+    },
   },
 }));

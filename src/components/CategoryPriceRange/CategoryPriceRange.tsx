@@ -47,7 +47,7 @@ export const CategoryPriceRange: React.FC<Props> = ({
           max={maxPriceInCategory}
           step={100}
           valueLabelDisplay="auto"
-          color="warning"
+          color="accent"
           sx={{
             '& .MuiSlider-thumb': {
               height: 18,

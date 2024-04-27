@@ -10,7 +10,7 @@ export const StyledBurgerMenu = styled('aside')(({ theme }) => ({
   zIndex: 30,
   width: '40vw',
   height: 'calc(100vh - 48px)',
-  background: theme.palette.white.main,
+  background: theme.palette.backgoundSecondary.main,
   overflow: 'auto',
 
   [theme.breakpoints.down('lg')]: {
@@ -75,12 +75,12 @@ export const StyledBurgerLink = styled(NavLink)(({
     textDecoration: 'none',
     fontWeight: '700',
     borderBottom:
-      issvg === 'true' ? `3px solid ${theme.palette.element.main}` : 'none',
+      issvg === 'true' ? `2px solid ${theme.palette.element.main}` : 'none',
     transition: 'border-top 500ms',
 
     '&:hover': {
       borderBottom:
-        issvg === 'true' ? `3px solid ${theme.palette.primary.main}` : 'none',
+        issvg === 'true' ? `2px solid ${theme.palette.primary.main}` : 'none',
     },
 
     '&:last-child': {
@@ -96,7 +96,7 @@ export const StyledBurgerLink = styled(NavLink)(({
 
     [theme.breakpoints.down('sm')]: {
       height: issvg === 'true' ? '10vh' : '60px',
-    }
+    },
   };
 });
 

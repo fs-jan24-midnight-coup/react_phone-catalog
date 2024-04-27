@@ -53,7 +53,7 @@ export const HomePage: FC = () => {
       <Container>
         <Slide in={true} direction="down">
           <Box py={2} id="1">
-            <Typography variant="h1" sx={{ pt: 2 }}>
+            <Typography variant="h1" sx={{ pt: 2 }} color="primary">
               Welcome to Nice Gadgets store!
             </Typography>
           </Box>

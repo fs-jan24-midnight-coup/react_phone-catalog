@@ -36,7 +36,9 @@ const CategorySort = () => {
   return (
     <Stack direction={'row'} spacing={2} sx={{ pb: 2 }}>
       <FormControl sx={{ minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">Sort By</InputLabel>
+        <InputLabel id="demo-simple-select-helper-label" color="primary">
+          Sort By
+        </InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
           id="demo-simple-select-helper"
@@ -44,16 +46,17 @@ const CategorySort = () => {
           value={sortBy || SortBy.Alphabetically}
           sx={{ width: '128px' }}
           onChange={handleSortByChange}
+          color="primary"
         >
           {Object.entries(SortBy).map(([key, value]) => (
-            <MenuItem key={key} value={value}>
+            <MenuItem key={key} value={value} color="primary">
               {key}
             </MenuItem>
           ))}
         </Select>
       </FormControl>
       <FormControl sx={{ minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">
+        <InputLabel id="demo-simple-select-helper-label" color="primary">
           Items per page
         </InputLabel>
         <Select
@@ -63,9 +66,10 @@ const CategorySort = () => {
           label="Items per page"
           sx={{ width: '128px' }}
           onChange={handlePerPageChange}
+          color="primary"
         >
           <MenuItem value="All" key="All">
-            <em>All</em>
+            <em color="primary">All</em>
           </MenuItem>
           {perPageStates.map(pagPerPage => (
             <MenuItem key={pagPerPage} value={pagPerPage}>

@@ -74,7 +74,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       style={{ textDecoration: 'none', color: 'inherit' }}
     >
       <Card
-        sx={{
+        sx={({ palette }) => ({
           boxSizing: 'border-box',
           maxWidth: 272,
           maxHeight: 506,
@@ -82,9 +82,9 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          border: 1,
-          borderColor: 'element.main',
-        }}
+          border: `1px solid ${palette.element.main}`,
+          backgroundColor: palette.backgoundSecondary.main,
+        })}
       >
         <CardContent sx={{ width: '100%', m: 1, p: '32px' }}>
           <CardMedia
@@ -130,6 +130,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
               <Typography
                 variant="body1"
                 component="div"
+                color="primary"
                 sx={{
                   display: '-webkit-box',
                   WebkitBoxOrient: 'vertical',
@@ -144,7 +145,11 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           </Box>
 
           <Stack direction="row" spacing={2} sx={{ pt: 2, pb: 1 }}>
-            <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+            <Typography
+              color="primary"
+              variant="h5"
+              sx={{ fontWeight: 'bold' }}
+            >
               ${price}
             </Typography>
             <Typography
@@ -171,7 +176,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
             </Typography>
             <Typography
               variant="body1"
-              sx={{ color: 'black', fontWeight: 'bold' }}
+              color="primary"
+              sx={{ fontWeight: 'bold' }}
             >
               {screen}
             </Typography>
@@ -186,7 +192,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
             </Typography>
             <Typography
               variant="body1"
-              sx={{ color: 'black', fontWeight: 'bold' }}
+              color="primary"
+              sx={{ fontWeight: 'bold' }}
             >
               {capacity}
             </Typography>
@@ -201,7 +208,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
             </Typography>
             <Typography
               variant="body1"
-              sx={{ color: 'black', fontWeight: 'bold' }}
+              color="primary"
+              sx={{ fontWeight: 'bold' }}
             >
               {ram}
             </Typography>
@@ -239,7 +247,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
               </Typography>
             </Button>
             <IconButton
-              sx={{ border: 1, borderColor: 'icon.main', color: 'black' }}
+              sx={{ border: 1, borderColor: 'icon.main' }}
+              color="primary"
               aria-label="add to favorites"
               onClick={event => toggleAddToFavorites(product, event)}
             >

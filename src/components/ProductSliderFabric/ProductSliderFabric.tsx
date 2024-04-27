@@ -88,20 +88,31 @@ export const ProductSliderFabric: React.FC<Props> = ({
           justifyContent: 'space-between',
         }}
       >
-        <Typography variant="h2" gutterBottom sx={customTypography.h2}>
+        <Typography
+          color="primary"
+          variant="h2"
+          gutterBottom
+          sx={customTypography.h2}
+        >
           {title}
         </Typography>
 
         <Box>
           <Button onClick={handleClickPrev} disabled={startIndex === 0}>
-            <ArrowBack />
+            <ArrowBack color={startIndex === 0 ? 'secondary' : 'primary'} />
           </Button>
 
           <Button
             onClick={handleClickNext}
             disabled={startIndex + productsPerRow >= newHotPrices.length}
           >
-            <ArrowForward />
+            <ArrowForward
+              color={
+                startIndex + productsPerRow >= newHotPrices.length
+                  ? 'secondary'
+                  : 'primary'
+              }
+            />
           </Button>
         </Box>
       </Box>

@@ -155,28 +155,23 @@ export const LinkThree = styled(Link)(({ theme }) => ({
   },
 }));
 
-export const SliderArrowIconRight = styled('img')({
-  width: '16px',
-  rotate: '180deg',
-});
-
-export const SwiperPaginationWrapper = styled(Box)({
+export const SwiperPaginationWrapper = styled(Box)(({ theme }) => ({
   width: '100%',
   position: 'relative',
   top: 'unset !important',
   left: 'unset !important',
   bottom: 'unset !important',
   right: 'unset !important',
+
   '.swiper-pagination-bullet': {
     width: '14px',
     height: '4px',
+    margin: '4px',
     borderRadius: 'initial',
+    backgroundColor: theme.palette.secondary.main,
+    cursor: 'pointer',
   },
   '.swiper-pagination-bullet-active': {
-    backgroundColor: 'black',
+    backgroundColor: theme.palette.primary.main,
   },
-});
-
-export const SliderArrowIconLeft = styled('img')({
-  width: '16px',
-});
+}));

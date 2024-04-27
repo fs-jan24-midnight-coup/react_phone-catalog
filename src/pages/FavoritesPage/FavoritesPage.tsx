@@ -39,7 +39,7 @@ export const FavoritesPage: React.FC = () => {
       <BreadCrumbsComponent />
       <Stack>
         <Slide in={true} direction="down" timeout={1200}>
-          <Typography variant="h1" sx={{ pt: 4 }}>
+          <Typography variant="h1" sx={{ pt: 4 }} color="primary">
             Favorites
           </Typography>
         </Slide>
@@ -69,7 +69,7 @@ export const FavoritesPage: React.FC = () => {
                   autoplay
                 ></DotLottiePlayer>
               </Box>
-              <Typography variant="h4" sx={{ pt: 2 }}>
+              <Typography variant="h4" sx={{ pt: 2 }} color="primary">
                 Looks like you have not added anything to your favorites.
               </Typography>
               <Link to="/">

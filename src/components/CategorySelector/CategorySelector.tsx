@@ -12,7 +12,12 @@ type Props = {
 export const CategorySelector: React.FC<Props> = ({ categories }) => {
   return (
     <Box>
-      <Typography variant="h2" gutterBottom sx={customTypography.h2}>
+      <Typography
+        variant="h2"
+        gutterBottom
+        sx={customTypography.h2}
+        color="primary"
+      >
         Shop by category
       </Typography>
       <Box display={'flex'} justifyContent={'center'}>

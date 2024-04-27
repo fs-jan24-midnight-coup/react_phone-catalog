@@ -11,7 +11,13 @@ function App() {
   const { isBurgerMenuShown, setIsBurgerMenuShown } = useBurgerMenuContext();
 
   return (
-    <>
+    <Box
+      sx={({ palette }) => ({
+        width: '100%',
+        height: '100%',
+        backgroundColor: palette.backgoundPrimary.main,
+      })}
+    >
       <Header />
       {isBurgerMenuShown && (
         <>
@@ -23,11 +29,16 @@ function App() {
           />
         </>
       )}
-      <Box sx={{ minHeight: 'calc(100vh - 64px - 125px)' }}>
+      <Box
+        sx={({ palette }) => ({
+          minHeight: 'calc(100vh - 64px - 125px)',
+          backgroundColor: palette.backgoundPrimary.main,
+        })}
+      >
         <Outlet />
       </Box>
       <Footer />
-    </>
+    </Box>
   );
 }
 

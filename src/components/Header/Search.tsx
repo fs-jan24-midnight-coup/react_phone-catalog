@@ -51,7 +51,7 @@ export const Search: React.FC = () => {
           position: isSearchOpen && 'absolute',
           left: isSearchOpen && '0',
           height: isSearchOpen ? '32px' : '100%',
-          width: isSearchOpen ? '70vw' : '48px',
+          width: isSearchOpen ? '60vw' : '48px',
           fontSize: isSearchOpen && '12px',
           zIndex: isSearchOpen && '2',
         },
@@ -64,6 +64,9 @@ export const Search: React.FC = () => {
             value={query}
             onChange={handleChangeQuery}
             inputRef={inputRef}
+            sx={({ palette }) => ({
+              color: palette.primary.main,
+            })}
             endAdornment={
               !!query.length && (
                 <InputAdornment
@@ -107,8 +110,8 @@ export const Search: React.FC = () => {
         <>
           <Divider
             orientation="vertical"
-            sx={({ breakpoints }) => ({
-              backgroundColor: 'secondary',
+            sx={({ breakpoints, palette }) => ({
+              backgroundColor: palette.element.main,
               height: '64px',
               [breakpoints.down('md')]: {
                 height: '48px',

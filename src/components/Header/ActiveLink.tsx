@@ -13,8 +13,8 @@ export const ActiveLink: React.FC<ActiveLinkProps> = ({ label, to }) => {
     <>
       <Divider
         orientation="vertical"
-        sx={({ breakpoints }) => ({
-          backgroundColor: 'secondary',
+        sx={({ breakpoints, palette }) => ({
+          backgroundColor: palette.element.main,
           height: '64px',
           [breakpoints.down('md')]: {
             height: '48px',

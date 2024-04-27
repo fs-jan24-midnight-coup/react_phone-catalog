@@ -18,6 +18,9 @@ import { useCartContext } from '../../hooks/useCartContext.ts';
 import { ProductInCart } from '../../types/ProductInCart.ts';
 import { Link } from 'react-router-dom';
 
+import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+
 type Props = {
   product: ProductInCart;
 };
@@ -39,7 +42,7 @@ const CartItem: React.FC<Props> = ({ product }) => {
 
   return (
     <Container>
-      <CartItemWrapper>
+      <CartItemWrapper color="backgoundSecondary">
         <ContentContainer
           spacing={{ xs: 2, sm: 3, md: 4 }}
           direction={{ xs: 'column', sm: 'row' }}
@@ -49,7 +52,14 @@ const CartItem: React.FC<Props> = ({ product }) => {
             direction={{ xs: 'row' }}
           >
             <StyledIconButton onClick={() => deleteFromCart(prodId)}>
-              <DeleteIcon />
+              <DeleteIcon
+                color="primary"
+                sx={({ palette }) => ({
+                  '&:hover': {
+                    color: palette.secondary.main,
+                  },
+                })}
+              />
             </StyledIconButton>
             <Link to={`/${category}/${prodId}`}>
               <ProductImage
@@ -68,24 +78,36 @@ const CartItem: React.FC<Props> = ({ product }) => {
               to={`/${category}/${prodId}`}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
-              <Typography variant="body1">{name}</Typography>
+              <Typography variant="body1" color="primary">
+                {name}
+              </Typography>
             </ProductName>
           </ContainerLeftSide>
 
           <ContainerRightSide spacing={{ sm: 3 }} direction={{ xs: 'row' }}>
             <ProductQuantity>
-              <IconButtonQuantityMinus
-                onClick={() => decreaseQuantity(prodId)}
-              />
-              <Typography variant="body1">
+              <IconButtonQuantityMinus onClick={() => decreaseQuantity(prodId)}>
+                <RemoveOutlinedIcon
+                  color="primary"
+                  sx={{ width: '16px', height: '16px' }}
+                />
+              </IconButtonQuantityMinus>
+              <Typography variant="body1" color="primary">
                 {cart.find(item => item.product.prodId === prodId)?.quantity}
               </Typography>
-              <IconButtonQuantityPlus
-                onClick={() => increaseQuantity(prodId)}
-              />
+              <IconButtonQuantityPlus onClick={() => increaseQuantity(prodId)}>
+                <AddOutlinedIcon
+                  color="primary"
+                  sx={{ width: '16px', height: '16px' }}
+                />
+              </IconButtonQuantityPlus>
             </ProductQuantity>
 
-            <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+            <Typography
+              variant="h5"
+              sx={{ fontWeight: 'bold' }}
+              color="primary"
+            >
               {`$${price}`}
             </Typography>
           </ContainerRightSide>

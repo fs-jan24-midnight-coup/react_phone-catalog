@@ -12,7 +12,7 @@ const keyStyle = {
 };
 
 const valueStyle = {
-  color: 'black',
+  color: 'primary.main',
   fontWeight: '700',
 };
 

@@ -14,8 +14,10 @@ import Container from '../Container/Container';
 import { NavBarButtons } from '.';
 import { useSearchContext } from '../../hooks/useSearchContext';
 import { useBurgerMenuContext } from '../../hooks/useBurgerMenuContext';
+import { useThemeChangeContext } from '../../hooks/useThemeChangeContext';
 
 export const Header: React.FC = () => {
+  const { mode } = useThemeChangeContext();
   const { isSearchOpen } = useSearchContext();
   const { setIsBurgerMenuShown } = useBurgerMenuContext();
   const { pathname } = useLocation();
@@ -38,7 +40,14 @@ export const Header: React.FC = () => {
               to=""
               onClick={() => setIsBurgerMenuShown(false)}
             >
-              <StyledLogo src="img/header/logo.svg" alt="Nice Gadget Logo" />
+              <StyledLogo
+                src={
+                  mode === 'dark'
+                    ? 'img/header/logo-dark-mode.svg'
+                    : 'img/header/logo.svg'
+                }
+                alt="Nice Gadget Logo"
+              />
             </StyledLogoLink>
 
             <NavMenu />

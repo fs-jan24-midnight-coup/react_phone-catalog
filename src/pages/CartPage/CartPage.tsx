@@ -68,7 +68,12 @@ export const CartPage = () => {
       <Container>
         <BreadCrumbsComponent />
         <Slide in={true} direction="down" timeout={1200}>
-          <Typography variant="h1" component="h2" sx={{ py: 2 }}>
+          <Typography
+            variant="h1"
+            component="h2"
+            sx={{ py: 2 }}
+            color="primary"
+          >
             Cart
           </Typography>
         </Slide>
@@ -84,7 +89,7 @@ export const CartPage = () => {
               spacing={2}
               sx={{ alignItems: 'center' }}
             >
-              <Typography variant="h4">
+              <Typography variant="h4" color="primary">
                 Looks like you have not added anything to your cart.
               </Typography>
               <Box
@@ -97,7 +102,7 @@ export const CartPage = () => {
                   autoplay
                 ></DotLottiePlayer>
               </Box>
-              <Typography variant="h4" sx={{}}>
+              <Typography variant="h4" sx={{}} color="primary">
                 Go ahead & explore top categories.
               </Typography>
               <Link to="/">
@@ -141,7 +146,7 @@ export const CartPage = () => {
               {cartQuantity > 0 &&
                 cart.map(item => (
                   <Box key={item.product.prodId} sx={{ pb: 2 }}>
-                    <CartItem product={item} />{' '}
+                    <CartItem product={item} />
                   </Box>
                 ))}
             </Box>
@@ -153,7 +158,13 @@ export const CartPage = () => {
                 height: 'fit-content',
               }}
             >
-              <Card>
+              <Card
+                sx={({ palette }) => ({
+                  backgroundColor: palette.backgoundSecondary.main,
+                  border: `1px solid ${palette.element.main}`,
+                  boxShadow: 'none',
+                })}
+              >
                 <CardContent>
                   <Stack direction="column" spacing={2}>
                     <Box
@@ -164,13 +175,21 @@ export const CartPage = () => {
                         alignItems: 'center',
                       }}
                     >
-                      <Typography variant="h2">{`$${totalPrice}`}</Typography>
+                      <Typography
+                        variant="h2"
+                        color="primary"
+                      >{`$${totalPrice}`}</Typography>
                       <Typography variant="body1" color="secondary">
                         Total for {cartQuantity}{' '}
                         {cartQuantity === 1 ? 'item' : 'items'}
                       </Typography>
                     </Box>
-                    <Divider variant="middle" />
+                    <Divider
+                      sx={({ palette }) => ({
+                        backgroundColor: palette.element.main,
+                      })}
+                      variant="middle"
+                    />
                     <Button
                       variant="contained"
                       color="accent"

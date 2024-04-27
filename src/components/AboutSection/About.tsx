@@ -11,13 +11,17 @@ export const About: React.FC<AboutProps> = ({ description }) => {
     <Stack sx={{ flex: 1 }}>
       <Stack spacing={4}>
         <Stack spacing={2}>
-          <Typography variant="h3">About</Typography>
+          <Typography variant="h3" color="primary">
+            About
+          </Typography>
           <Divider />
         </Stack>
         {description?.map(descr => {
           return (
             <Stack key={descr.title} spacing={2}>
-              <Typography variant="h4">{descr.title}</Typography>
+              <Typography variant="h4" color="primary">
+                {descr.title}
+              </Typography>
               <Typography variant="body1" color="secondary">
                 {descr.text}
               </Typography>

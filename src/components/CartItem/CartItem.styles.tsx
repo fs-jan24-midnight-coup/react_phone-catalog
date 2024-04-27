@@ -8,7 +8,6 @@ export const CartItemWrapper = styled(Box)(({ theme }) => ({
   border: '1px solid',
   borderColor: theme.palette.element.main,
   borderRadius: '16px',
-  background: theme.palette.white.main,
 }));
 
 export const ContentContainer = styled(Stack)(({ theme }) => ({
@@ -94,20 +93,18 @@ export const ProductQuantity = styled(Box)({
   height: '32px',
 });
 
-export const IconButtonQuantityPlus = styled(IconButton)({
+export const IconButtonQuantityPlus = styled(IconButton)(({ theme }) => ({
   padding: 0,
-  backgroundImage: `url(${'img/slider-button-default-plus.svg'})`,
   width: '32px',
   height: '32px',
-});
+  borderRadius: '100%',
+  border: `1px solid ${theme.palette.primary.main}`,
+}));
 
-export const IconButtonQuantityMinus = styled(IconButton)(() => ({
+export const IconButtonQuantityMinus = styled(IconButton)(({ theme }) => ({
   padding: 0,
-  backgroundImage: `url(${'img/slider-button-disabled-minus.svg'})`,
   width: '32px',
   height: '32px',
-
-  '&:focus': {
-    backgroundImage: `url(${'img/slider-button-focus-minus.svg'})`,
-  },
+  borderRadius: '100%',
+  border: `1px solid ${theme.palette.primary.main}`,
 }));

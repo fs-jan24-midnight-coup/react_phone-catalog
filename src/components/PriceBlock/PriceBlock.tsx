@@ -8,7 +8,11 @@ type Props = {
 export const PriceBlock: React.FC<Props> = ({ price, fullPrice }) => {
   return (
     <Stack direction="row" spacing={2} sx={{ pt: '8px', pb: 1 }}>
-      <Typography variant="h5" sx={{ fontWeight: '800', fontSize: '32px' }}>
+      <Typography
+        variant="h5"
+        sx={{ fontWeight: '800', fontSize: '32px' }}
+        color="primary"
+      >
         ${price}
       </Typography>
       <Typography

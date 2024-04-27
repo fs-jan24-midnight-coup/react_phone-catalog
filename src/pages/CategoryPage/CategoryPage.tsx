@@ -155,7 +155,7 @@ export const CategoryPage = () => {
         <BreadCrumbsComponent />
         <Stack>
           <Slide in={true} direction="down" key={categoryName}>
-            <Typography variant="h1" sx={{ pt: 4 }}>
+            <Typography variant="h1" sx={{ pt: 4 }} color="primary">
               {categoryName.charAt(0).toUpperCase() + categoryName.slice(1)}
             </Typography>
           </Slide>
@@ -176,7 +176,7 @@ export const CategoryPage = () => {
                 spacing={2}
                 sx={{ alignItems: 'center', pt: 3 }}
               >
-                <Typography variant="h4">
+                <Typography variant="h4" color="primary">
                   There are no {categoryName} matching the query.
                 </Typography>
                 <Box
@@ -194,7 +194,7 @@ export const CategoryPage = () => {
                     speed={0.75}
                   ></DotLottiePlayer>
                 </Box>
-                <Typography variant="h4" sx={{}}>
+                <Typography variant="h4" color="primary">
                   Go ahead & explore {categoryName} full list.
                 </Typography>
                 <Button
