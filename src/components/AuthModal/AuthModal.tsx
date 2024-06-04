@@ -291,7 +291,7 @@ export const AuthModal: React.FC<Props> = ({
                           {' '}
                           {isPasswordShown ? (
                             <Visibility
-                              className="cursor_pointer"
+                              sx={{ cursor: 'pointer' }}
                               onClick={togglePasswordHide}
                             />
                           ) : (
